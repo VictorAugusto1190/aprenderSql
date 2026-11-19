@@ -3,27 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="google-site-verification"
+      content="bg9ZGdt_xFCT5kOfAwBui0WoKlZlUhR_VXU4h6kC6sg"
+    />
     <meta name="theme-color" content="#10110f" />
-    <meta name="description" content="Descubra revistas independentes de moda, estilo e design." />
+    <meta
+      name="description"
+      content="Descubra revistas independentes de moda, estilo e design."
+    />
     <title>World Books — Revistas de moda</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header class="site-header">
-      <a class="wordmark" href="#" aria-label="World Books, início">world books<span>.</span></a>
+      <a class="wordmark" href="#" aria-label="World Books, início"
+        >world books<span>.</span></a
+      >
       <nav class="main-nav" aria-label="Navegação principal">
         <a href="#colecao">Revistas</a>
         <a href="#sobre">Sobre a World Books</a>
-        <button class="admin-link" id="toggleAdmin" type="button">Painel ADM <span aria-hidden="true">↗</span></button>
+        <button class="admin-link" id="toggleAdmin" type="button">
+          Painel ADM <span aria-hidden="true">↗</span>
+        </button>
       </nav>
       <button class="cart-trigger" id="openCart" aria-label="Abrir carrinho">
         <span class="cart-splash" id="cartSplash" aria-hidden="true">
           <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
         </span>
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.2 11.1a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 2-1.6L22 8H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M3 4h2l2.2 11.1a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 2-1.6L22 8H6"
+          />
+          <circle cx="10" cy="20" r="1" />
+          <circle cx="18" cy="20" r="1" />
+        </svg>
         <span class="cart-label">Sacola</span>
         <span class="cart-count" id="cartCount">0</span>
       </button>
@@ -32,23 +52,36 @@
     <main id="clientPanel">
       <section class="hero">
         <div class="hero-copy">
-          <p class="overline"><span></span> Publicações independentes · edição 2026</p>
+          <p class="overline">
+            <span></span> Publicações independentes · edição 2026
+          </p>
           <h1>Moda para<br />além da <em>vitrine.</em></h1>
-          <p class="hero-description">Revistas para quem vive estilo com curiosidade. Tendências, criação e histórias que vestem novas ideias.</p>
-          <a class="hero-link" href="#colecao">Explore a coleção <span aria-hidden="true">↘</span></a>
+          <p class="hero-description">
+            Revistas para quem vive estilo com curiosidade. Tendências, criação
+            e histórias que vestem novas ideias.
+          </p>
+          <a class="hero-link" href="#colecao"
+            >Explore a coleção <span aria-hidden="true">↘</span></a
+          >
         </div>
         <div class="hero-art" aria-label="Seleção de capas da coleção">
           <div class="orbit orbit-one"></div>
           <div class="orbit orbit-two"></div>
           <div class="hero-glow"></div>
           <article class="floating-cover cover-hero-back">
-            <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=700&q=85" alt="" />
+            <img
+              src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=700&q=85"
+              alt=""
+            />
             <span class="cover-label">WORLD BOOKS / 08</span>
             <strong>FORMA<br />LIVRE</strong>
             <small>Novas vozes da moda autoral</small>
           </article>
           <article class="floating-cover cover-hero-front">
-            <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=700&q=85" alt="" />
+            <img
+              src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=700&q=85"
+              alt=""
+            />
             <span class="cover-label">WORLD BOOKS / 12</span>
             <strong>ESTILO<br />EM MOV.</strong>
             <small>O agora e o que vem depois</small>
@@ -56,7 +89,9 @@
           <span class="hero-note">MODA, CULTURA<br />E PONTO DE VISTA</span>
           <span class="hero-index">01 — <span id="heroCount">06</span></span>
         </div>
-        <div class="hero-bottom"><span>LEITURA COM INTENÇÃO</span><span>01 / 04</span></div>
+        <div class="hero-bottom">
+          <span>LEITURA COM INTENÇÃO</span><span>01 / 04</span>
+        </div>
       </section>
 
       <section class="collection section-shell" id="colecao">
@@ -66,30 +101,58 @@
             <h2>Vista novas <em>ideias.</em></h2>
           </div>
           <label class="search-field">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16 16 4 4"/></svg>
-            <input id="searchInput" type="search" placeholder="Buscar uma revista" />
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="11" cy="11" r="7" />
+              <path d="m16 16 4 4" />
+            </svg>
+            <input
+              id="searchInput"
+              type="search"
+              placeholder="Buscar uma revista"
+            />
           </label>
         </div>
 
-        <div class="category-list" id="categoryList" aria-label="Filtrar por categoria">
-          <button class="category-chip active" data-category="Todas">Todas <span id="magazineCount">06</span></button>
-          <button class="category-chip" data-category="Moda autoral">Moda autoral</button>
-          <button class="category-chip" data-category="Tendências">Tendências</button>
-          <button class="category-chip" data-category="Streetwear">Streetwear</button>
+        <div
+          class="category-list"
+          id="categoryList"
+          aria-label="Filtrar por categoria"
+        >
+          <button class="category-chip active" data-category="Todas">
+            Todas <span id="magazineCount">06</span>
+          </button>
+          <button class="category-chip" data-category="Moda autoral">
+            Moda autoral
+          </button>
+          <button class="category-chip" data-category="Tendências">
+            Tendências
+          </button>
+          <button class="category-chip" data-category="Streetwear">
+            Streetwear
+          </button>
           <button class="category-chip" data-category="Beleza">Beleza</button>
-          <button class="category-chip" data-category="Sustentabilidade">Sustentabilidade</button>
+          <button class="category-chip" data-category="Sustentabilidade">
+            Sustentabilidade
+          </button>
         </div>
 
         <div class="magazine-grid" id="magazineGrid" aria-live="polite"></div>
-        <p class="no-results" id="noResults" hidden>Nenhuma revista encontrada. Experimente outra busca ou categoria.</p>
+        <p class="no-results" id="noResults" hidden>
+          Nenhuma revista encontrada. Experimente outra busca ou categoria.
+        </p>
       </section>
 
       <section class="manifesto" id="sobre">
         <div class="manifesto-mark">WB.</div>
         <p class="overline">Um pouco mais devagar</p>
         <h2>Estilo é escolha.<br /><em>Moda é expressão.</em></h2>
-        <p>A World Books reúne revistas para quem enxerga a moda como cultura, criação e expressão — da ideia à última página.</p>
-        <a href="#colecao">Conheça as edições <span aria-hidden="true">↗</span></a>
+        <p>
+          A World Books reúne revistas para quem enxerga a moda como cultura,
+          criação e expressão — da ideia à última página.
+        </p>
+        <a href="#colecao"
+          >Conheça as edições <span aria-hidden="true">↗</span></a
+        >
         <div class="manifesto-orb"></div>
       </section>
     </main>
@@ -99,51 +162,114 @@
         <div>
           <p class="overline">Painel de gerenciamento</p>
           <h1>Adicione uma nova <em>revista.</em></h1>
-          <p>Cadastre uma edição para ela aparecer na loja. O catálogo fica salvo no servidor para todos os clientes.</p>
+          <p>
+            Cadastre uma edição para ela aparecer na loja. O catálogo fica salvo
+            no servidor para todos os clientes.
+          </p>
         </div>
-        <button class="admin-back" id="backToStore" type="button">← Voltar à loja</button>
+        <button class="admin-back" id="backToStore" type="button">
+          ← Voltar à loja
+        </button>
       </section>
 
       <section class="password-required" id="passwordChangeRequired" hidden>
         <strong>Troque sua senha inicial para continuar.</strong>
-        <span>O cadastro de revistas fica bloqueado até você definir uma senha forte.</span>
+        <span
+          >O cadastro de revistas fica bloqueado até você definir uma senha
+          forte.</span
+        >
       </section>
 
       <section class="security-settings">
         <div class="security-copy">
           <p class="overline">Segurança da conta</p>
           <h2>Senha do ADM</h2>
-          <p>Use uma senha com pelo menos 12 caracteres. Ela será armazenada como hash no servidor.</p>
+          <p>
+            Use uma senha com pelo menos 12 caracteres. Ela será armazenada como
+            hash no servidor.
+          </p>
         </div>
         <form class="password-form" id="passwordForm">
-          <label class="admin-field">Senha atual
-            <input name="currentPassword" type="password" autocomplete="current-password" required />
+          <label class="admin-field"
+            >Senha atual
+            <input
+              name="currentPassword"
+              type="password"
+              autocomplete="current-password"
+              required
+            />
           </label>
-          <label class="admin-field">Nova senha
-            <input name="newPassword" type="password" autocomplete="new-password" minlength="12" required placeholder="Mínimo de 12 caracteres" />
+          <label class="admin-field"
+            >Nova senha
+            <input
+              name="newPassword"
+              type="password"
+              autocomplete="new-password"
+              minlength="12"
+              required
+              placeholder="Mínimo de 12 caracteres"
+            />
           </label>
-          <label class="admin-field">Confirme a nova senha
-            <input name="confirmPassword" type="password" autocomplete="new-password" minlength="12" required />
+          <label class="admin-field"
+            >Confirme a nova senha
+            <input
+              name="confirmPassword"
+              type="password"
+              autocomplete="new-password"
+              minlength="12"
+              required
+            />
           </label>
           <p class="form-message" id="passwordMessage" role="status" hidden></p>
           <div class="security-actions">
-            <button class="admin-submit" id="changePasswordButton" type="submit">Alterar senha</button>
-            <button class="logout-button" id="logoutAdmin" type="button">Sair do ADM</button>
+            <button
+              class="admin-submit"
+              id="changePasswordButton"
+              type="submit"
+            >
+              Alterar senha
+            </button>
+            <button class="logout-button" id="logoutAdmin" type="button">
+              Sair do ADM
+            </button>
           </div>
         </form>
       </section>
 
       <section class="category-manager">
         <div class="category-manager-heading">
-          <div><p class="overline">Organização da loja</p><h2>Categorias</h2></div>
-          <p>Renomear uma categoria também atualiza as revistas vinculadas. Para excluir, mova antes as revistas para outra categoria.</p>
+          <div>
+            <p class="overline">Organização da loja</p>
+            <h2>Categorias</h2>
+          </div>
+          <p>
+            Renomear uma categoria também atualiza as revistas vinculadas. Para
+            excluir, mova antes as revistas para outra categoria.
+          </p>
         </div>
         <form class="category-form" id="categoryForm">
-          <label class="admin-field">Nome da categoria
-            <input id="categoryInput" name="name" type="text" maxlength="40" required placeholder="Ex.: Editorial" />
+          <label class="admin-field"
+            >Nome da categoria
+            <input
+              id="categoryInput"
+              name="name"
+              type="text"
+              maxlength="40"
+              required
+              placeholder="Ex.: Editorial"
+            />
           </label>
-          <button class="admin-submit" id="categoryFormSubmit" type="submit">Adicionar categoria</button>
-          <button class="logout-button" id="cancelCategoryEdit" type="button" hidden>Cancelar edição</button>
+          <button class="admin-submit" id="categoryFormSubmit" type="submit">
+            Adicionar categoria
+          </button>
+          <button
+            class="logout-button"
+            id="cancelCategoryEdit"
+            type="button"
+            hidden
+          >
+            Cancelar edição
+          </button>
         </form>
         <div class="admin-category-list" id="categoryAdminList"></div>
       </section>
@@ -152,14 +278,25 @@
         <section class="admin-form-card">
           <div class="admin-card-heading">
             <span class="admin-step">01</span>
-            <div><p class="overline" id="magazineFormOverline">Nova publicação</p><h2 id="magazineFormHeading">Dados da revista</h2></div>
+            <div>
+              <p class="overline" id="magazineFormOverline">Nova publicação</p>
+              <h2 id="magazineFormHeading">Dados da revista</h2>
+            </div>
           </div>
           <form id="magazineForm">
-            <label class="admin-field">Título da revista
-              <input name="title" type="text" maxlength="60" required placeholder="Ex.: Formas de vestir" />
+            <label class="admin-field"
+              >Título da revista
+              <input
+                name="title"
+                type="text"
+                maxlength="60"
+                required
+                placeholder="Ex.: Formas de vestir"
+              />
             </label>
             <div class="admin-fields-row">
-              <label class="admin-field">Categoria
+              <label class="admin-field"
+                >Categoria
                 <select name="category" required>
                   <option value="Moda autoral">Moda autoral</option>
                   <option value="Tendências">Tendências</option>
@@ -168,39 +305,80 @@
                   <option value="Sustentabilidade">Sustentabilidade</option>
                 </select>
               </label>
-              <label class="admin-field">Preço (R$)
-                <input name="price" type="number" min="0.01" step="0.01" required placeholder="49,90" />
+              <label class="admin-field"
+                >Preço (R$)
+                <input
+                  name="price"
+                  type="number"
+                  min="0.01"
+                  step="0.01"
+                  required
+                  placeholder="49,90"
+                />
               </label>
             </div>
-            <label class="admin-field">Descrição
-              <textarea name="description" rows="3" maxlength="180" required placeholder="Conte um pouco sobre esta edição..."></textarea>
+            <label class="admin-field"
+              >Descrição
+              <textarea
+                name="description"
+                rows="3"
+                maxlength="180"
+                required
+                placeholder="Conte um pouco sobre esta edição..."
+              ></textarea>
             </label>
-            <label class="admin-field">Imagem da capa
+            <label class="admin-field"
+              >Imagem da capa
               <span class="upload-control">
-                <input id="coverFile" name="cover" type="file" accept="image/*" required />
+                <input
+                  id="coverFile"
+                  name="cover"
+                  type="file"
+                  accept="image/*"
+                  required
+                />
                 <span class="upload-button">Escolher imagem</span>
-                <span class="upload-name" id="uploadName">JPG, PNG ou WEBP</span>
+                <span class="upload-name" id="uploadName"
+                  >JPG, PNG ou WEBP</span
+                >
               </span>
             </label>
             <div class="cover-preview" id="coverPreview" hidden>
               <img id="previewImage" alt="Prévia da capa selecionada" />
               <span>Prévia da capa</span>
             </div>
-            <p class="admin-hint">A capa será otimizada e salva com segurança no servidor. Ao editar, você pode manter a imagem atual.</p>
+            <p class="admin-hint">
+              A capa será otimizada e salva com segurança no servidor. Ao
+              editar, você pode manter a imagem atual.
+            </p>
             <div class="magazine-form-actions">
-              <button class="admin-submit" id="submitMagazine" type="submit">Cadastrar revista <span aria-hidden="true">↗</span></button>
-              <button class="logout-button" id="cancelMagazineEdit" type="button" hidden>Cancelar edição</button>
+              <button class="admin-submit" id="submitMagazine" type="submit">
+                Cadastrar revista <span aria-hidden="true">↗</span>
+              </button>
+              <button
+                class="logout-button"
+                id="cancelMagazineEdit"
+                type="button"
+                hidden
+              >
+                Cancelar edição
+              </button>
             </div>
           </form>
         </section>
 
         <section class="admin-library">
           <div class="admin-list-heading">
-            <div><p class="overline">Sua loja</p><h2>Gerenciar revistas</h2></div>
+            <div>
+              <p class="overline">Sua loja</p>
+              <h2>Gerenciar revistas</h2>
+            </div>
             <span class="admin-total" id="adminMagazineCount">0</span>
           </div>
           <div class="admin-magazine-list" id="adminMagazineList"></div>
-          <p class="admin-empty" id="adminEmpty">As revistas da loja aparecerão aqui para edição ou exclusão.</p>
+          <p class="admin-empty" id="adminEmpty">
+            As revistas da loja aparecerão aqui para edição ou exclusão.
+          </p>
         </section>
       </div>
     </main>
@@ -212,43 +390,108 @@
     </footer>
 
     <div class="login-backdrop" id="adminLoginModal" hidden>
-      <section class="login-dialog" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+      <section
+        class="login-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="loginTitle"
+      >
         <div class="login-heading">
-          <div><p class="overline">Área restrita</p><h2 id="loginTitle">Acesso ADM</h2></div>
-          <button class="login-close" id="closeLogin" type="button" aria-label="Fechar login">×</button>
+          <div>
+            <p class="overline">Área restrita</p>
+            <h2 id="loginTitle">Acesso ADM</h2>
+          </div>
+          <button
+            class="login-close"
+            id="closeLogin"
+            type="button"
+            aria-label="Fechar login"
+          >
+            ×
+          </button>
         </div>
-        <p class="login-description">Entre com seu usuário e senha para gerenciar as revistas.</p>
+        <p class="login-description">
+          Entre com seu usuário e senha para gerenciar as revistas.
+        </p>
         <form id="adminLoginForm">
-          <label class="admin-field">Usuário
-            <input name="username" type="text" autocomplete="username" required />
+          <label class="admin-field"
+            >Usuário
+            <input
+              name="username"
+              type="text"
+              autocomplete="username"
+              required
+            />
           </label>
-          <label class="admin-field">Senha
-            <input name="password" type="password" autocomplete="current-password" required />
+          <label class="admin-field"
+            >Senha
+            <input
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              required
+            />
           </label>
-          <p class="form-message error" id="loginMessage" role="alert" hidden></p>
-          <button class="admin-submit" id="loginButton" type="submit">Entrar no painel <span aria-hidden="true">↗</span></button>
+          <p
+            class="form-message error"
+            id="loginMessage"
+            role="alert"
+            hidden
+          ></p>
+          <button class="admin-submit" id="loginButton" type="submit">
+            Entrar no painel <span aria-hidden="true">↗</span>
+          </button>
         </form>
       </section>
     </div>
 
     <div class="drawer-backdrop" id="drawerBackdrop"></div>
-    <aside class="cart-drawer" id="cartDrawer" aria-labelledby="cartTitle" aria-hidden="true">
+    <aside
+      class="cart-drawer"
+      id="cartDrawer"
+      aria-labelledby="cartTitle"
+      aria-hidden="true"
+    >
       <div class="drawer-header">
-        <div><p class="overline">Sua seleção</p><h2 id="cartTitle">Sacola <span id="drawerCount">(0)</span></h2></div>
-        <button class="close-drawer" id="closeCart" aria-label="Fechar sacola">×</button>
+        <div>
+          <p class="overline">Sua seleção</p>
+          <h2 id="cartTitle">Sacola <span id="drawerCount">(0)</span></h2>
+        </div>
+        <button class="close-drawer" id="closeCart" aria-label="Fechar sacola">
+          ×
+        </button>
       </div>
       <div class="cart-items" id="cartItems"></div>
       <div class="cart-empty" id="cartEmpty">
         <span class="empty-icon">✳</span>
         <strong>Sua sacola está esperando.</strong>
         <p>Encontre uma leitura que combina com você.</p>
-        <button class="text-button" id="backToShop">Voltar à coleção <span>↗</span></button>
+        <button class="text-button" id="backToShop">
+          Voltar à coleção <span>↗</span>
+        </button>
       </div>
       <div class="cart-footer" id="cartFooter" hidden>
-        <div class="subtotal"><span>Subtotal</span><strong id="cartTotal">R$ 0,00</strong></div>
-        <p class="checkout-note">O pedido será enviado pelo WhatsApp para confirmação.</p>
-        <a class="whatsapp-button" id="whatsappCheckout" href="#" target="_blank" rel="noopener noreferrer">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.6a8.4 8.4 0 0 1-12.4 7.3L3 20l1.2-4.9a8.4 8.4 0 1 1 16.3-3.5Z"/><path d="M8.2 8.1c.2-.5.4-.5.7-.5h.5c.2 0 .4.1.5.4l.7 1.7c.1.2.1.4 0 .5l-.5.7c-.2.2-.2.4 0 .6.4.7 1 1.3 1.7 1.7.2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.6-.1l1.7.8c.3.1.4.3.4.5 0 .3-.2 1.1-.7 1.5-.5.5-1.2.7-1.9.6-.6-.1-1.4-.3-2.4-.8a9 9 0 0 1-3.1-2.8c-.8-1-1.3-2.1-1.4-2.8-.1-.7.1-1.3.5-1.8Z"/></svg>
+        <div class="subtotal">
+          <span>Subtotal</span><strong id="cartTotal">R$ 0,00</strong>
+        </div>
+        <p class="checkout-note">
+          O pedido será enviado pelo WhatsApp para confirmação.
+        </p>
+        <a
+          class="whatsapp-button"
+          id="whatsappCheckout"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M20.5 11.6a8.4 8.4 0 0 1-12.4 7.3L3 20l1.2-4.9a8.4 8.4 0 1 1 16.3-3.5Z"
+            />
+            <path
+              d="M8.2 8.1c.2-.5.4-.5.7-.5h.5c.2 0 .4.1.5.4l.7 1.7c.1.2.1.4 0 .5l-.5.7c-.2.2-.2.4 0 .6.4.7 1 1.3 1.7 1.7.2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.6-.1l1.7.8c.3.1.4.3.4.5 0 .3-.2 1.1-.7 1.5-.5.5-1.2.7-1.9.6-.6-.1-1.4-.3-2.4-.8a9 9 0 0 1-3.1-2.8c-.8-1-1.3-2.1-1.4-2.8-.1-.7.1-1.3.5-1.8Z"
+            />
+          </svg>
           Finalizar pelo WhatsApp <span aria-hidden="true">↗</span>
         </a>
       </div>
