@@ -54,11 +54,3 @@ INSERT INTO categories (id, name, sort_order) VALUES
   ('sustentabilidade', 'Sustentabilidade', 4)
 ON CONFLICT (id) DO NOTHING;
 
-INSERT INTO magazines (id, title, category_id, description, price, issue, cover, cover_title, sort_order) VALUES
-  ('forma-livre', 'Forma livre', 'moda-autoral', 'Criadores independentes que reinventam formas, materiais e o jeito de vestir.', 48, 'Edição 12', 'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=800&q=85', 'FORMA<br>LIVRE', 0),
-  ('estilo-em-movimento', 'Estilo em movimento', 'tendencias', 'Uma leitura do que está mudando nas passarelas, nas ruas e no nosso guarda-roupa.', 42, 'Edição 08', 'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=800&q=85', 'ESTILO<br>EM MOV.', 1),
-  ('rua-e-identidade', 'Rua & identidade', 'streetwear', 'A moda urbana como linguagem: pessoas, cenas e referências que criam movimento.', 54, 'Edição 05', 'https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=800&q=85', 'RUA &<br>IDENTIDADE', 2),
-  ('ritual-de-beleza', 'Ritual de beleza', 'beleza', 'Beleza sem regras: autocuidado, expressão e novas conversas sobre imagem.', 46, 'Edição 03', 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=85', 'RITUAL<br>DE BELEZA', 3),
-  ('vestir-o-tempo', 'Vestir o tempo', 'sustentabilidade', 'Consumo consciente, peças duráveis e caminhos para uma moda com mais cuidado.', 39, 'Edição 07', 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=85', 'VESTIR<br>O TEMPO', 4),
-  ('arquivo-da-moda', 'Arquivo da moda', 'moda-autoral', 'Ícones, movimentos e imagens que ajudam a entender como o estilo se transforma.', 44, 'Edição 02', 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=85', 'ARQUIVO<br>DA MODA', 5)
-ON CONFLICT (id) DO NOTHING;

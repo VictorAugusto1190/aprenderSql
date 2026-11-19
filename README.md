@@ -2,7 +2,7 @@
 
 ## Publicar no Vercel com Neon
 
-1. Crie um banco PostgreSQL no Neon e execute todo o conteúdo de `schema.sql` no SQL Editor.
+1. Crie um banco PostgreSQL no Neon e execute todo o conteúdo de `schema.sql` no SQL Editor. O catálogo começa sem revistas; cadastre suas edições pelo Painel ADM.
 2. Envie este projeto para um repositório GitHub e importe o repositório no Vercel.
 3. Em **Settings → Environment Variables** no Vercel, configure:
    - `DATABASE_URL`: string de conexão do Neon.

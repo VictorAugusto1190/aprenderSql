@@ -1,93 +1,7 @@
 const whatsappNumber = "5514997615693";
 
-let magazines = [
-  {
-    id: "forma-livre",
-    title: "Forma livre",
-    category: "Moda autoral",
-    description:
-      "Criadores independentes que reinventam formas, materiais e o jeito de vestir.",
-    price: 48,
-    issue: "Edição 12",
-    cover:
-      "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=800&q=85",
-    coverTitle: "FORMA<br>LIVRE",
-    position: "center",
-  },
-  {
-    id: "estilo-em-movimento",
-    title: "Estilo em movimento",
-    category: "Tendências",
-    description:
-      "Uma leitura do que está mudando nas passarelas, nas ruas e no nosso guarda-roupa.",
-    price: 42,
-    issue: "Edição 08",
-    cover:
-      "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=800&q=85",
-    coverTitle: "ESTILO<br>EM MOV.",
-    position: "center",
-  },
-  {
-    id: "rua-e-identidade",
-    title: "Rua & identidade",
-    category: "Streetwear",
-    description:
-      "A moda urbana como linguagem: pessoas, cenas e referências que criam movimento.",
-    price: 54,
-    issue: "Edição 05",
-    cover:
-      "https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=800&q=85",
-    coverTitle: "RUA &<br>IDENTIDADE",
-    position: "center",
-  },
-  {
-    id: "ritual-de-beleza",
-    title: "Ritual de beleza",
-    category: "Beleza",
-    description:
-      "Beleza sem regras: autocuidado, expressão e novas conversas sobre imagem.",
-    price: 46,
-    issue: "Edição 03",
-    cover:
-      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=85",
-    coverTitle: "RITUAL<br>DE BELEZA",
-    position: "center",
-  },
-  {
-    id: "vestir-o-tempo",
-    title: "Vestir o tempo",
-    category: "Sustentabilidade",
-    description:
-      "Consumo consciente, peças duráveis e caminhos para uma moda com mais cuidado.",
-    price: 39,
-    issue: "Edição 07",
-    cover:
-      "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=85",
-    coverTitle: "VESTIR<br>O TEMPO",
-    position: "center",
-  },
-  {
-    id: "arquivo-da-moda",
-    title: "Arquivo da moda",
-    category: "Moda autoral",
-    description:
-      "Ícones, movimentos e imagens que ajudam a entender como o estilo se transforma.",
-    price: 44,
-    issue: "Edição 02",
-    cover:
-      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=85",
-    coverTitle: "ARQUIVO<br>DA MODA",
-    position: "center",
-  },
-];
-
-let categories = [
-  { id: "moda-autoral", name: "Moda autoral" },
-  { id: "tendencias", name: "Tendências" },
-  { id: "streetwear", name: "Streetwear" },
-  { id: "beleza", name: "Beleza" },
-  { id: "sustentabilidade", name: "Sustentabilidade" },
-];
+let magazines = [];
+let categories = [];
 let catalogMagazines = [];
 let catalogLoaded = false;
 let editingMagazine = null;
@@ -162,6 +76,13 @@ function optimizedCoverUrl(source) {
   return url.href;
 }
 
+function hasCustomCover(magazine) {
+  return (
+    typeof magazine.cover === "string" &&
+    magazine.cover.toLowerCase().startsWith("data:image/")
+  );
+}
+
 const normalized = (value) =>
   value
     .toLocaleLowerCase("pt-BR")
@@ -218,6 +139,7 @@ function renderMagazines() {
   const searchTerm = normalized(searchInput.value.trim());
   magazineCount.textContent = String(magazines.length).padStart(2, "0");
   heroCount.textContent = String(magazines.length).padStart(2, "0");
+  renderHeroCovers();
   const visibleMagazines = magazines.filter((magazine) => {
     const matchesCategory =
       selectedCategory === "Todas" || magazine.category === selectedCategory;
@@ -237,15 +159,20 @@ function renderMagazines() {
     card.style.animationDelay = `${index * 45}ms`;
     const cover = document.createElement("div");
     cover.className = "magazine-cover";
-    cover.classList.add("is-loading");
-    const image = document.createElement("img");
-    image.alt = `Capa da revista ${magazine.title}`;
-    image.loading = "lazy";
-    image.decoding = "async";
-    image.style.objectPosition = magazine.position || "center";
-    const finishImageLoading = () => cover.classList.remove("is-loading");
-    image.addEventListener("load", finishImageLoading, { once: true });
-    image.addEventListener("error", finishImageLoading, { once: true });
+    let image = null;
+    if (hasCustomCover(magazine)) {
+      cover.classList.add("is-loading");
+      image = document.createElement("img");
+      image.alt = `Capa da revista ${magazine.title}`;
+      image.loading = "lazy";
+      image.decoding = "async";
+      image.style.objectPosition = magazine.position || "center";
+      const finishImageLoading = () => cover.classList.remove("is-loading");
+      image.addEventListener("load", finishImageLoading, { once: true });
+      image.addEventListener("error", finishImageLoading, { once: true });
+    } else {
+      cover.classList.add("no-photo");
+    }
     const type = document.createElement("span");
     type.className = "cover-type";
     type.textContent = `WORLD BOOKS / ${magazine.category.toUpperCase()}`;
@@ -255,7 +182,8 @@ function renderMagazines() {
     const coverName = document.createElement("strong");
     coverName.className = "cover-name";
     coverName.textContent = magazine.coverTitle.replace(/<br\s*\/?>/gi, " ");
-    cover.append(image, type, issue, coverName);
+    if (image) cover.append(image);
+    cover.append(type, issue, coverName);
 
     const info = document.createElement("div");
     info.className = "card-info";
@@ -283,17 +211,42 @@ function renderMagazines() {
     info.append(meta, title, description, buy);
     card.append(cover, info);
     magazineGrid.append(card);
-    image.src = optimizedCoverUrl(magazine.cover);
-    if (image.complete) finishImageLoading();
+    if (image) {
+      image.src = optimizedCoverUrl(magazine.cover);
+      if (image.complete) cover.classList.remove("is-loading");
+    }
   });
 }
 
-function initializeHeroImagePlaceholders() {
-  document.querySelectorAll(".floating-cover").forEach((cover) => {
+function renderHeroCovers() {
+  const featuredMagazines = magazines.filter(hasCustomCover).slice(0, 2);
+  document.querySelectorAll("[data-hero-cover]").forEach((cover, index) => {
+    const magazine = featuredMagazines[index];
+    if (!magazine) {
+      cover.hidden = true;
+      return;
+    }
+
+    cover.hidden = false;
+    cover.classList.add("is-loading");
     const image = cover.querySelector("img");
+    image.alt = "";
+    image.loading = "eager";
+    image.decoding = "async";
+    image.style.objectPosition = magazine.position || "center";
     const finishImageLoading = () => cover.classList.remove("is-loading");
     image.addEventListener("load", finishImageLoading, { once: true });
     image.addEventListener("error", finishImageLoading, { once: true });
+
+    const issueNumber = magazine.issue.replace(/^\D*/, "");
+    cover.querySelector(".cover-label").textContent =
+      `WORLD BOOKS / ${issueNumber || magazine.category.toUpperCase()}`;
+    cover.querySelector("strong").textContent = magazine.coverTitle.replace(
+      /<br\s*\/?>/gi,
+      " ",
+    );
+    cover.querySelector("small").textContent = magazine.title;
+    image.src = optimizedCoverUrl(magazine.cover);
     if (image.complete) finishImageLoading();
   });
 }
@@ -456,6 +409,7 @@ function animateCoverToCart(button) {
   const cover = button
     .closest(".magazine-card")
     .querySelector(".magazine-cover img");
+  if (!cover) return;
   const cartButton = document.querySelector("#openCart");
   const coverRect = cover.getBoundingClientRect();
   const cartRect = cartButton.getBoundingClientRect();
@@ -726,9 +680,15 @@ function renderAdminMagazineList() {
 
   catalogMagazines.forEach((magazine) => {
     const row = createElement("article", "admin-magazine-row");
-    const image = document.createElement("img");
-    image.src = magazine.cover;
-    image.alt = `Capa da revista ${magazine.title}`;
+    let cover;
+    if (hasCustomCover(magazine)) {
+      cover = document.createElement("img");
+      cover.src = optimizedCoverUrl(magazine.cover);
+      cover.alt = `Capa da revista ${magazine.title}`;
+    } else {
+      cover = createElement("div", "admin-magazine-cover-placeholder", "WB");
+      cover.setAttribute("aria-label", "Capa de amostra oculta da loja");
+    }
     const details = createElement("div", "admin-magazine-details");
     details.append(
       createElement("small", "", magazine.category),
@@ -747,7 +707,7 @@ function renderAdminMagazineList() {
     removeButton.disabled = mustChangePassword;
     removeButton.setAttribute("aria-label", `Excluir ${magazine.title}`);
     actions.append(editButton, removeButton);
-    row.append(image, details, actions);
+    row.append(cover, details, actions);
     adminMagazineList.append(row);
   });
 }
@@ -781,9 +741,13 @@ function startMagazineEdit(magazine) {
   coverFile.value = "";
   coverFile.required = false;
   clearCoverPreview();
-  previewImage.src = magazine.cover;
-  coverPreview.hidden = false;
-  uploadName.textContent = "Manter capa atual";
+  if (hasCustomCover(magazine)) {
+    previewImage.src = magazine.cover;
+    coverPreview.hidden = false;
+    uploadName.textContent = "Manter capa atual";
+  } else {
+    uploadName.textContent = "Capa de amostra oculta; selecione uma foto";
+  }
   magazineFormOverline.textContent = "Editar publicação";
   magazineFormHeading.textContent = magazine.title;
   submitMagazine.innerHTML =
@@ -881,9 +845,15 @@ function renderCart() {
   items.forEach(({ magazine, quantity }) => {
     const row = document.createElement("div");
     row.className = "cart-row";
-    const image = document.createElement("img");
-    image.src = magazine.cover;
-    image.alt = "";
+    let cover;
+    if (hasCustomCover(magazine)) {
+      cover = document.createElement("img");
+      cover.src = magazine.cover;
+      cover.alt = "";
+    } else {
+      cover = createElement("div", "cart-cover-placeholder", "WB");
+      cover.setAttribute("aria-hidden", "true");
+    }
     const info = createElement("div", "cart-row-info");
     info.append(
       createElement("small", "", magazine.category),
@@ -917,7 +887,7 @@ function renderCart() {
     removeButton.type = "button";
     removeButton.dataset.remove = magazine.id;
     removeButton.setAttribute("aria-label", `Remover ${magazine.title}`);
-    row.append(image, info, removeButton);
+    row.append(cover, info, removeButton);
     cartItems.append(row);
   });
 
@@ -982,10 +952,13 @@ cartItems.addEventListener("click", (event) => {
 coverFile.addEventListener("change", () => {
   const file = coverFile.files[0];
   if (!file) {
-    if (editingMagazine) {
+    if (editingMagazine && hasCustomCover(editingMagazine)) {
       previewImage.src = editingMagazine.cover;
       coverPreview.hidden = false;
       uploadName.textContent = "Manter capa atual";
+    } else if (editingMagazine) {
+      clearCoverPreview();
+      uploadName.textContent = "Capa de amostra oculta; selecione uma foto";
     } else {
       clearCoverPreview();
     }
@@ -1317,7 +1290,6 @@ document.querySelector("#backToShop").addEventListener("click", closeCart);
 drawerBackdrop.addEventListener("click", closeCart);
 
 restoreCart();
-initializeHeroImagePlaceholders();
 renderCategoryControls();
 renderMagazines();
 renderAdminCategoryList();
