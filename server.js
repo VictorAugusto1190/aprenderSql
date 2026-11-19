@@ -746,6 +746,6 @@ async function main() {
 }
 
 main().catch((error) => {
-  console.error("Não foi possível iniciar o servidor da Margem.", error);
+  console.error("Não foi possível iniciar o servidor da World Books.", error);
   process.exitCode = 1;
 });

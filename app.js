@@ -195,7 +195,7 @@ function renderMagazines() {
     image.style.objectPosition = magazine.position || "center";
     const type = document.createElement("span");
     type.className = "cover-type";
-    type.textContent = `MARGEM / ${magazine.category.toUpperCase()}`;
+    type.textContent = `WORLD BOOKS / ${magazine.category.toUpperCase()}`;
     const issue = document.createElement("span");
     issue.className = "cover-issue";
     issue.textContent = magazine.issue.toUpperCase();
@@ -771,7 +771,7 @@ function buildWhatsAppMessage(items, total) {
       `• ${magazine.title} — ${quantity} un. — ${formatPrice(magazine.price * quantity)}`,
   );
   return [
-    "Olá! Quero fazer este pedido pela Margem:",
+    "Olá! Quero fazer este pedido pela World Books:",
     "",
     ...lines,
     "",
