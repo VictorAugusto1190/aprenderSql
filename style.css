@@ -178,6 +178,18 @@ h1 em, h2 em { color: #778946; font-weight: 500; }
 .magazine-cover img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .65s cubic-bezier(.2,.7,.2,1), filter .4s ease, opacity .25s ease; }
 .magazine-card:hover .magazine-cover img { transform: scale(1.045); }
 .magazine-cover::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg,rgba(0,0,0,.28),transparent 35%,rgba(0,0,0,.39)); pointer-events: none; }
+.skeleton-line {
+  display: block;
+  border-radius: 999px;
+  background: linear-gradient(105deg, #d7d6cd 25%, #eeede6 40%, #d7d6cd 55%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.4s ease-in-out infinite;
+}
+.skeleton-line-meta { width: 28%; height: 8px; }
+.skeleton-line-title { width: 66%; height: 17px; margin: 8px 0 6px; }
+.skeleton-line-description { width: 94%; height: 36px; margin-bottom: 15px; }
+.skeleton-line-price { width: 30%; height: 12px; }
+.skeleton-line-button { width: 78px; height: 24px; }
 .cover-type { position: absolute; z-index: 1; left: 16px; top: 15px; color: white; font-size: 8px; font-weight: 600; letter-spacing: 1.4px; }
 .cover-name { position: absolute; z-index: 1; left: 17px; right: 15px; bottom: 27px; color: white; font-family: var(--serif); font-size: clamp(27px,3vw,40px); font-weight: 500; letter-spacing: -1px; line-height: .93; }
 .cover-issue { position: absolute; z-index: 1; right: 16px; top: 16px; color: rgba(255,255,255,.75); font-size: 7px; letter-spacing: 1px; }
@@ -418,4 +430,5 @@ h1 em, h2 em { color: #778946; font-weight: 500; }
 }
 @media (prefers-reduced-motion: reduce) {
   .floating-cover.is-loading, .magazine-cover.is-loading { animation: none; }
+  .skeleton-line { animation: none; }
 }

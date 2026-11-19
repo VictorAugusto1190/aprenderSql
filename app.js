@@ -89,6 +89,7 @@ let categories = [
   { id: "sustentabilidade", name: "Sustentabilidade" },
 ];
 let catalogMagazines = [];
+let catalogLoaded = false;
 let editingMagazine = null;
 let coverPreviewUrl = null;
 const magazineGrid = document.querySelector("#magazineGrid");
@@ -174,7 +175,46 @@ function createElement(tag, className = "", text = "") {
   return element;
 }
 
+function renderMagazineSkeletons() {
+  magazineGrid.replaceChildren();
+  noResults.hidden = true;
+  magazineGrid.setAttribute("aria-busy", "true");
+
+  for (let index = 0; index < Math.max(magazines.length, 6); index += 1) {
+    const card = createElement(
+      "article",
+      "magazine-card magazine-card-skeleton",
+    );
+    card.setAttribute("aria-hidden", "true");
+    const cover = createElement("div", "magazine-cover is-loading");
+    const info = createElement("div", "card-info");
+    const meta = createElement("div", "card-meta");
+    meta.append(
+      createElement("span", "skeleton-line skeleton-line-meta"),
+      createElement("span", "skeleton-line skeleton-line-meta"),
+    );
+    const title = createElement("span", "skeleton-line skeleton-line-title");
+    const description = createElement(
+      "span",
+      "skeleton-line skeleton-line-description",
+    );
+    const buy = createElement("div", "card-buy");
+    buy.append(
+      createElement("span", "skeleton-line skeleton-line-price"),
+      createElement("span", "skeleton-line skeleton-line-button"),
+    );
+    info.append(meta, title, description, buy);
+    card.append(cover, info);
+    magazineGrid.append(card);
+  }
+}
+
 function renderMagazines() {
+  if (!catalogLoaded) {
+    renderMagazineSkeletons();
+    return;
+  }
+
   const searchTerm = normalized(searchInput.value.trim());
   magazineCount.textContent = String(magazines.length).padStart(2, "0");
   heroCount.textContent = String(magazines.length).padStart(2, "0");
@@ -188,6 +228,7 @@ function renderMagazines() {
   });
 
   magazineGrid.replaceChildren();
+  magazineGrid.setAttribute("aria-busy", "false");
   noResults.hidden = visibleMagazines.length > 0;
 
   visibleMagazines.forEach((magazine, index) => {
@@ -600,6 +641,7 @@ async function initializeServerData() {
     categories = savedCategories;
     isAdminAuthenticated = session.authenticated;
     mustChangePassword = Boolean(session.mustChangePassword);
+    catalogLoaded = true;
     for (const id of cart.keys()) {
       if (!magazines.some((magazine) => magazine.id === id)) cart.delete(id);
     }
@@ -611,6 +653,18 @@ async function initializeServerData() {
     renderCart();
   } catch (error) {
     console.error("Não foi possível carregar os dados do servidor.", error);
+    catalogLoaded = true;
+    if (!["localhost", "127.0.0.1"].includes(location.hostname)) {
+      magazines = [];
+      categories = [];
+      noResults.textContent =
+        "Não foi possível carregar as revistas. Atualize a página para tentar novamente.";
+    }
+    renderCategoryControls();
+    renderMagazines();
+    renderAdminMagazineList();
+    renderAdminCategoryList();
+    renderCart();
     showToast(error.message || "Não foi possível carregar o catálogo.");
   }
 }
@@ -1266,7 +1320,6 @@ restoreCart();
 initializeHeroImagePlaceholders();
 renderCategoryControls();
 renderMagazines();
-renderAdminMagazineList();
 renderAdminCategoryList();
 renderCart();
 initializeServerData();
