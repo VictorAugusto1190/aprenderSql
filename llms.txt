@@ -1,0 +1,17 @@
+# World Books
+
+> Loja online brasileira de revistas independentes de moda, estilo e design.
+
+## Sobre
+
+A World Books apresenta uma coleção de revistas de moda com temas como moda autoral, tendências, streetwear, beleza e sustentabilidade. Os visitantes podem consultar as edições disponíveis e enviar pedidos pelo WhatsApp.
+
+## Páginas
+
+- [Página inicial e coleção](https://worldbooks-phi.vercel.app/)
+- [Coleção de revistas](https://worldbooks-phi.vercel.app/#colecao)
+- [Sobre a World Books](https://worldbooks-phi.vercel.app/#sobre)
+
+## Informações
+
+O catálogo e os preços atuais são exibidos no site e podem mudar. Consulte a página da coleção para ver as informações vigentes.

@@ -14,3 +14,9 @@
 Não publique o arquivo `.env` nem compartilhe `DATABASE_URL` ou a senha inicial. O `.gitignore` já protege arquivos `.env` locais.
 
 `start.ps1` continua disponível apenas para desenvolvimento local; o site publicado no Vercel usa as funções em `api/` e não precisa dele.
+
+## Indexação em buscadores
+
+Depois de publicar, envie `https://worldbooks-phi.vercel.app/sitemap.xml` em **Sitemaps** no Google Search Console e solicite a indexação da página inicial em **Inspeção de URL**. O site também publica `robots.txt` e `llms.txt` para ajudar mecanismos de busca e ferramentas compatíveis a entender o conteúdo. Isso não garante posição nos resultados nem citações por sistemas de IA.
+
+Se o domínio principal mudar, atualize as URLs canônicas em `index.html`, `robots.txt`, `sitemap.xml` e `llms.txt`.
