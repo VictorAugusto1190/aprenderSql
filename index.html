@@ -64,6 +64,7 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
       rel="stylesheet"
@@ -117,19 +118,22 @@
           <div class="orbit orbit-one"></div>
           <div class="orbit orbit-two"></div>
           <div class="hero-glow"></div>
-          <article class="floating-cover cover-hero-back">
+          <article class="floating-cover cover-hero-back is-loading">
             <img
-              src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=700&q=85"
+              src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=480&q=72"
               alt=""
+              decoding="async"
             />
             <span class="cover-label">WORLD BOOKS / 08</span>
             <strong>FORMA<br />LIVRE</strong>
             <small>Novas vozes da moda autoral</small>
           </article>
-          <article class="floating-cover cover-hero-front">
+          <article class="floating-cover cover-hero-front is-loading">
             <img
-              src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=700&q=85"
+              src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=480&q=72"
               alt=""
+              decoding="async"
+              fetchpriority="high"
             />
             <span class="cover-label">WORLD BOOKS / 12</span>
             <strong>ESTILO<br />EM MOV.</strong>

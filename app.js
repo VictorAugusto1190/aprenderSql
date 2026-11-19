@@ -153,6 +153,14 @@ const formatPrice = (value) =>
     currency: "BRL",
   });
 
+function optimizedCoverUrl(source) {
+  if (!source.startsWith("https://images.unsplash.com/")) return source;
+  const url = new URL(source);
+  url.searchParams.set("w", "480");
+  url.searchParams.set("q", "72");
+  return url.href;
+}
+
 const normalized = (value) =>
   value
     .toLocaleLowerCase("pt-BR")
@@ -188,11 +196,15 @@ function renderMagazines() {
     card.style.animationDelay = `${index * 45}ms`;
     const cover = document.createElement("div");
     cover.className = "magazine-cover";
+    cover.classList.add("is-loading");
     const image = document.createElement("img");
-    image.src = magazine.cover;
     image.alt = `Capa da revista ${magazine.title}`;
     image.loading = "lazy";
+    image.decoding = "async";
     image.style.objectPosition = magazine.position || "center";
+    const finishImageLoading = () => cover.classList.remove("is-loading");
+    image.addEventListener("load", finishImageLoading, { once: true });
+    image.addEventListener("error", finishImageLoading, { once: true });
     const type = document.createElement("span");
     type.className = "cover-type";
     type.textContent = `WORLD BOOKS / ${magazine.category.toUpperCase()}`;
@@ -230,6 +242,18 @@ function renderMagazines() {
     info.append(meta, title, description, buy);
     card.append(cover, info);
     magazineGrid.append(card);
+    image.src = optimizedCoverUrl(magazine.cover);
+    if (image.complete) finishImageLoading();
+  });
+}
+
+function initializeHeroImagePlaceholders() {
+  document.querySelectorAll(".floating-cover").forEach((cover) => {
+    const image = cover.querySelector("img");
+    const finishImageLoading = () => cover.classList.remove("is-loading");
+    image.addEventListener("load", finishImageLoading, { once: true });
+    image.addEventListener("error", finishImageLoading, { once: true });
+    if (image.complete) finishImageLoading();
   });
 }
 
@@ -1239,6 +1263,7 @@ document.querySelector("#backToShop").addEventListener("click", closeCart);
 drawerBackdrop.addEventListener("click", closeCart);
 
 restoreCart();
+initializeHeroImagePlaceholders();
 renderCategoryControls();
 renderMagazines();
 renderAdminMagazineList();
